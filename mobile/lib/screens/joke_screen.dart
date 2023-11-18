@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/data/jokes_content.dart';
+import 'package:mobile/widgets/display_jokes.dart';
 
-class JokeScreen extends StatelessWidget {
+class JokeScreen extends StatefulWidget {
   const JokeScreen({super.key});
+
+  @override
+  State<JokeScreen> createState() => _JokeScreenState();
+}
+
+class _JokeScreenState extends State<JokeScreen> {
+  List<String> votedJokesList = [];
+  var activeScreen = false;
+
+  onVotedJoke(String content) {
+    votedJokesList.add(content);
+    if (votedJokesList.length == contents.length) {
+      setState(() {
+        activeScreen = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,44 +84,19 @@ class JokeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.fromLTRB(16, 34, 16, 34),
-            child: const Text(
-              "That's all the jokes for today! Come back another day!",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 16, color: Color.fromARGB(255, 96, 96, 96)),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(40, 8, 40, 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: Text("This is funny!"),
-                  style: TextButton.styleFrom(
-                      foregroundColor: const Color.fromARGB(255, 255, 255, 255),
-                      backgroundColor: const Color.fromARGB(255, 44, 126, 219),
-                      textStyle: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w500)),
-                ),
-                const Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  child: Text("This is not funny."),
-                  style: TextButton.styleFrom(
-                    foregroundColor: const Color.fromARGB(255, 255, 255, 255),
-                    backgroundColor: const Color.fromARGB(255, 42, 179, 99),
-                    textStyle: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w500),
+          activeScreen == true
+              ? Container(
+                  padding: const EdgeInsets.fromLTRB(16, 34, 16, 34),
+                  child: const Text(
+                    "That's all the jokes for today! Come back another day!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16, color: Color.fromARGB(255, 96, 96, 96)),
                   ),
+                )
+              : DisplayJokesContent(
+                  onVotedJoke: onVotedJoke,
                 ),
-              ],
-            ),
-          ),
           const Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
