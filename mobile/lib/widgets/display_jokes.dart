@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/data/jokes_content.dart';
+import 'package:mobile/models/content.dart';
 
 class DisplayJokesContent extends StatefulWidget {
-  final void Function(String answer) onVotedJoke;
+  final void Function(String content) onVotedJoke;
   const DisplayJokesContent({super.key, required this.onVotedJoke});
 
   @override
@@ -16,39 +18,62 @@ class _DisplayJokesContentState extends State<DisplayJokesContent> {
   var like = 0;
   var dislike = 0;
 
-  votingJoke(String content, bool isLike) {
-    widget.onVotedJoke(content);
+  votingJoke(Content jokeContent, bool isLike) async {
+    widget.onVotedJoke(jokeContent.content);
 
-    setState(() {
-      curIndex++;
+    jokeContent.id = generateId(jokeContent.content);
 
-      isLike == true ? like++ : dislike++;
-    });
-    //final jokeContent = Joke(contents[curIndex], like, dislike);
-  }
+    final existDatabase = await FirebaseFirestore.instance
+        .collection("jokes")
+        .doc(jokeContent.id)
+        .get();
 
-  List<String> votedJokesList = [];
-  var isEmptyJoke = false;
-
-  onVotedJoke(String content) {
-    votedJokesList.add(content);
-    if (votedJokesList.length == contents.length) {
+    final idExist = existDatabase.data()?['id'];
+    if (mounted) {
       setState(() {
-        isEmptyJoke = true;
+        curIndex++;
+        if (idExist != jokeContent.id) {
+          FirebaseFirestore.instance
+              .collection("jokes")
+              .doc(jokeContent.id)
+              .set({
+            "id": jokeContent.id,
+            "joke_content": jokeContent.content,
+            "like": isLike ? like + 1 : like,
+            "dislike": isLike ? dislike : dislike + 1
+          });
+
+          like = 0;
+          dislike = 0;
+        } else {
+          like = existDatabase.data()?['like'];
+
+          dislike = existDatabase.data()?['dislike'];
+
+          isLike == true
+              ? FirebaseFirestore.instance
+                  .collection("jokes")
+                  .doc(idExist)
+                  .update({"like": like + 1})
+              : FirebaseFirestore.instance
+                  .collection("jokes")
+                  .doc(idExist)
+                  .update({"dislike": dislike + 1});
+        }
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final String content = contents[curIndex].content;
+    final jokeContent = contents[curIndex];
 
     return Column(
       children: [
         Container(
           padding: const EdgeInsets.fromLTRB(16, 34, 16, 34),
           child: Text(
-            content,
+            jokeContent.content,
             textAlign: TextAlign.center,
             style: const TextStyle(
                 fontSize: 16, color: Color.fromARGB(255, 96, 96, 96)),
@@ -62,7 +87,7 @@ class _DisplayJokesContentState extends State<DisplayJokesContent> {
             children: [
               TextButton(
                 onPressed: () {
-                  votingJoke(content, true);
+                  votingJoke(contents[curIndex], true);
                 },
                 style: TextButton.styleFrom(
                     foregroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -74,7 +99,7 @@ class _DisplayJokesContentState extends State<DisplayJokesContent> {
               const Spacer(),
               TextButton(
                 onPressed: () {
-                  votingJoke(content, false);
+                  votingJoke(contents[curIndex], false);
                 },
                 style: TextButton.styleFrom(
                   foregroundColor: const Color.fromARGB(255, 255, 255, 255),
