@@ -50,8 +50,8 @@ class _JokeScreenState extends State<JokeScreen> {
             width: 8,
           ),
           CircleAvatar(
-            backgroundColor: Colors.black,
-          ),
+              radius: 26,
+              backgroundImage: AssetImage("assets/images/daisy_avatar.jpg")),
           SizedBox(
             width: 16,
           )
