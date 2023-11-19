@@ -1,7 +1,7 @@
-import 'libs/handle_min_max_sum.dart';
+import 'libs/user_options.dart';
 
 void main() {
-  final time = Stopwatch()..start();
-  handleMinMaxOfSumInteger();
-  print(time.elapsed.inMicroseconds);
+  //final time = Stopwatch()..start();
+  userOptions();
+  //print(time.elapsed.inMicroseconds); // calculate time executation
 }
