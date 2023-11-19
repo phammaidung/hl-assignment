@@ -27,6 +27,6 @@ samples, guidance on mobile development, and a full API reference.
 - Counting vote is stored on Firebase:
   ![alt text](https://drive.google.com/file/d/12NfYSvWRy1IbfpZBJQiNmPYLnw1a5dOD/view?usp=drive_link)
 
-  If you can't see result images on README file, please open this [drive](https://drive.google.com/file/d/12NfYSvWRy1IbfpZBJQiNmPYLnw1a5dOD/view?usp=drive_link)
+  If you can't see result images on README file, please open this [drive](https://drive.google.com/drive/folders/1KejG4_RQ2Y5lIkxcmqNVSs_aiYxSWXHv?usp=drive_link)
 
   
