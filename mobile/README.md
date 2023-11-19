@@ -14,3 +14,19 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Results
+
+- Mobile UI:
+  - Show joke to read: 
+  ![alt text](https://drive.google.com/file/d/1s7eFvKeODLUMxpoQUf8LWQCcFKn2Z2J0/view?usp=drive_link)
+
+  - No more joke:
+  ![alt text](https://drive.google.com/file/d/1sCQe__S33GjDCWoYNIjkd-p-iRi4yo43/view?usp=drive_link)
+
+- Counting vote is stored on Firebase:
+  ![alt text](https://drive.google.com/file/d/12NfYSvWRy1IbfpZBJQiNmPYLnw1a5dOD/view?usp=drive_link)
+
+  If you can't see result images on README file, please open this [drive](https://drive.google.com/file/d/12NfYSvWRy1IbfpZBJQiNmPYLnw1a5dOD/view?usp=drive_link)
+
+  
