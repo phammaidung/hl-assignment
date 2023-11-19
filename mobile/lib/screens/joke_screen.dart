@@ -62,14 +62,16 @@ class _JokeScreenState extends State<JokeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
+            padding: const EdgeInsets.only(left: 16, right: 16),
             width: double.infinity,
-            height: 150,
+            height: MediaQuery.of(context).size.height * 0.2,
             color: const Color.fromARGB(255, 42, 179, 99),
             child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "A joke a day keeps the doctor away",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 18),
                 ),
@@ -78,6 +80,7 @@ class _JokeScreenState extends State<JokeScreen> {
                 ),
                 Text(
                   "If you joke wrong way, your teeth have to pay. (Serious)",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 14),
                 ),
@@ -111,6 +114,7 @@ class _JokeScreenState extends State<JokeScreen> {
               ),
               Text(
                 "Copyright 2021 HLS",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 16, color: Color.fromARGB(255, 96, 96, 96)),
               ),

@@ -94,7 +94,10 @@ class _DisplayJokesContentState extends State<DisplayJokesContent> {
                     backgroundColor: const Color.fromARGB(255, 44, 126, 219),
                     textStyle: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.w500)),
-                child: const Text("This is funny!"),
+                child: const Text(
+                  "This is funny!",
+                  textAlign: TextAlign.center,
+                ),
               ),
               const Spacer(),
               TextButton(
@@ -107,7 +110,10 @@ class _DisplayJokesContentState extends State<DisplayJokesContent> {
                   textStyle: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                child: const Text("This is not funny."),
+                child: const Text(
+                  "This is not funny.",
+                  textAlign: TextAlign.center,
+                ),
               ),
             ],
           ),
