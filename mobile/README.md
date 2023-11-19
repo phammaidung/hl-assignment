@@ -18,15 +18,14 @@ samples, guidance on mobile development, and a full API reference.
 ## Results
 
 - Mobile UI:
-  - Show joke to read: 
-  ![alt text](https://drive.google.com/file/d/1s7eFvKeODLUMxpoQUf8LWQCcFKn2Z2J0/view?usp=drive_link)
+
+  - Show joke to read:
+    ![joke](./assets/images/joke.jpg)
 
   - No more joke:
-  ![alt text](https://drive.google.com/file/d/1sCQe__S33GjDCWoYNIjkd-p-iRi4yo43/view?usp=drive_link)
+    ![no joke](./assets//images/no_joke.jpg)
 
 - Counting vote is stored on Firebase:
-  ![alt text](https://drive.google.com/file/d/12NfYSvWRy1IbfpZBJQiNmPYLnw1a5dOD/view?usp=drive_link)
+  ![firebase](./assets/images/firebase.png)
 
   If you can't see result images on README file, please open this [drive](https://drive.google.com/drive/folders/1KejG4_RQ2Y5lIkxcmqNVSs_aiYxSWXHv?usp=drive_link)
-
-  
