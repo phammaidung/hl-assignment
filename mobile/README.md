@@ -1,6 +1,6 @@
 # mobile
 
-A new Flutter project.
+A Flutter project is the solution for [hl-assignment: mobile](https://github.com/hl-solutions/hl-assignment/tree/master/mobile).
 
 ## Getting Started
 
